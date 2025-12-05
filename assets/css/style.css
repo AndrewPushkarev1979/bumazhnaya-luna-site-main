@@ -1,0 +1,459 @@
+:root {
+    --white: #FFFFFF;
+    --warm-gray: #b5b5b4;
+    --black: #393938;
+    --light-black: #393938;
+    --warm-yellow: #f6d901;
+    --warm-yellow-dark: #f6d901;
+    --light-bg: #f0f0f0;
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', 'Helvetica Neue', sans-serif;
+    background-color: var(--white);
+    color: var(--black);
+    line-height: 1.6;
+    background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-sm);
+}
+
+/* Header Styles */
+header {
+    background-color: var(--white);
+    border-bottom: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--spacing-sm) 0;
+}
+
+.header-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.5rem 0;
+}
+
+.logo {
+    flex-shrink: 0;
+}
+
+.logo-image {
+    height: 70px;
+    object-fit: contain;
+    max-width: 100%;
+}
+
+/* Contacts in header */
+.contact-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.contact-info a[href^="tel:"] {
+    text-decoration: none;
+    font-weight: 500;
+    color: var(--black);
+    white-space: nowrap;
+}
+
+.contact-info a[href^="tel:"]:hover {
+    color: var(--warm-yellow-dark);
+    transform: scale(1.05);
+}
+
+/* Social icons */
+.social-icon-link {
+    display: inline-block;
+    text-decoration: none;
+}
+
+.social-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.social-icon-link:hover .social-icon {
+    opacity: 0.8;
+    transform: scale(1.2);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-md);
+    justify-content: center;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: 500;
+    transition: all 0.3s;
+    position: relative;
+    padding: 0.4rem 0.2rem;
+    display: inline-block;
+}
+
+nav a:hover {
+    color: var(--warm-yellow);
+}
+
+/* Animated under/overlines */
+nav a::before,
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--warm-yellow);
+    transition: width 0.3s;
+}
+
+nav a::before {
+    bottom: 0;
+    right: 0;
+}
+
+nav a::after {
+    top: 0;
+    left: 0;
+}
+
+nav a:hover::before,
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Active link */
+nav a.active {
+    font-weight: bold;
+}
+
+nav a.active::before,
+nav a.active::after {
+    display: none;
+}
+
+/* Mobile menu button */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--black);
+    position: absolute;
+    right: var(--spacing-sm);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Main content offset */
+main {
+    margin-top: 100px;
+}
+
+/* Hero section */
+.hero {
+    padding: var(--spacing-xl) 0;
+    text-align: center;
+    background: linear-gradient(135deg, var(--white) 0%, var(--light-bg) 100%);
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.hero h2 {
+    font-size: 1.4rem;
+    color: var(--warm-gray);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 400;
+}
+
+/* CTA Button */
+.cta-button {
+    background-color: var(--warm-yellow);
+    color: var(--black);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: inline-block;
+    transition: all 0.3s;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid var(--black);
+    letter-spacing: 1px;
+}
+
+.cta-button:hover {
+    background-color: var(--black);
+    color: var(--warm-yellow);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+/* Director section */
+.director {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--light-bg);
+}
+
+.director-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.director-photo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.director-text h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+/* Video section */
+.video-section {
+    padding: var(--spacing-lg) 0;
+    text-align: center;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+video {
+    width: 100%;
+    height: auto;
+}
+
+/* Poster section */
+.poster {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--light-bg);
+    text-align: center;
+}
+
+.poster-image img {
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto var(--spacing-md);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* === Стили для страницы "Команда" === */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.team-member {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+}
+
+.member-photo {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.member-info {
+    padding: 1.5rem;
+}
+
+.member-info h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.4rem;
+}
+
+.member-info .position {
+    color: var(--warm-yellow);
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.75rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--black);
+    color: var(--white);
+    padding: var(--spacing-lg) 0;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.footer-section h3 {
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.2rem;
+}
+
+.footer-section ul {
+    list-style: none;
+}
+
+.footer-section ul li {
+    margin-bottom: var(--spacing-xs);
+}
+
+.footer-section a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-section a:hover {
+    color: var(--warm-yellow);
+}
+
+.social-links {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.map-container {
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin: var(--spacing-md) 0;
+    aspect-ratio: 1 / 1;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: var(--spacing-md);
+    border-top: 1px solid #333;
+    color: #999;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--white);
+        flex-direction: column;
+        padding: var(--spacing-sm);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+
+    .director-content {
+        flex-direction: column;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero h2 {
+        font-size: 1.2rem;
+    }
+
+    main {
+        margin-top: 100px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .contact-info {
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+    }
+}

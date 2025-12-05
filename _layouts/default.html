@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: "Театральная студия “Бумажная Луна” — Красноярск" }}</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <meta name="description" content="{{ page.description | default: 'Досуговая театральная студия для детей от 6 лет в Красноярске. Постановки, фестивали, развитие через игру.' }}">
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="{{ page.title | default: 'Бумажная Луна' }}">
+    <meta property="og:description" content="{{ page.description | default: 'Театральная студия для детей от 6 лет в Красноярске' }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://бумажнаялуна.рф{{ page.url }}">
+    <meta property="og:image" content="https://бумажнаялуна.рф/assets/images/afisha.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Schema.org JSON-LD -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "PerformingArtsTheater",
+      "name": "Театральная студия “Бумажная Луна”",
+      "url": "https://бумажнаялуна.рф",
+      "telephone": "+79029423228",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ул. 9 Мая, 20",
+        "addressLocality": "Красноярск",
+        "addressCountry": "RU"
+      },
+      "description": "Досуговая театральная студия для детей от 6 лет. Постановки, фестивали, развитие через игру.",
+      "image": "https://бумажнаялуна.рф/assets/images/afisha.jpg",
+      "sameAs": [
+        "https://vk.com/kseniya_pushkareva_theatre"
+      ]
+    }
+    </script>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="/assets/images/logo.png" alt="Театральная студия Бумажная Луна" class="logo-image" loading="lazy">
+            </div>
+
+            <button class="mobile-menu-btn">☰</button>
+
+            <nav>
+                <ul>
+                    <li><a href="/index.html"{% if page.url == "/index.html" %} class="active"{% endif %}>Главная</a></li>
+                    <li><a href="/events.html"{% if page.url == "/events.html" %} class="active"{% endif %}>События</a></li>
+                    <li><a href="/team.html"{% if page.url == "/team.html" %} class="active"{% endif %}>Команда</a></li>
+                    <li><a href="/schedule.html"{% if page.url == "/schedule.html" %} class="active"{% endif %}>Расписание</a></li>
+                    <li><a href="/materials.html"{% if page.url == "/materials.html" %} class="active"{% endif %}>Полезное</a></li>
+                    <li><a href="/parents.html"{% if page.url == "/parents.html" %} class="active"{% endif %}>Родителям</a></li>
+                    <li><a href="/contacts.html"{% if page.url == "/contacts.html" %} class="active"{% endif %}>Контакты</a></li>
+                </ul>
+            </nav>
+
+            <div class "contact-info">
+                <a href="tel:+79029423228">+7 902 942 32 28</a>
+                <a href="tg://resolve?domain=kseniya_pushkareva" class="social-icon-link" target="_blank">
+                    <img src="/assets/images/logo_tg.png" alt="Telegram" class="social-icon" loading="lazy">
+                </a>
+                <a href="https://vk.com/kseniya_pushkareva_theatre" class="social-icon-link" target="_blank">
+                    <img src="/assets/images/logo_vk.png" alt="ВКонтакте" class="social-icon" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Основной контент страницы -->
+    <main class="main-content">
+        {{ content }}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Контакты</h3>
+                    <p>г. Красноярск, ул. 9 Мая, д. 20</p>
+                    <p>первый этаж</p>
+                    <p>+7 902 942 32 28</p>
+                    <p><strong>ВК:</strong> <a href="https://vk.com/kseniya_pushkareva_theatre">vk.com/kseniya_pushkareva_theatre</a></p>
+                    <p><strong>Telegram:</strong> <a href="https://t.me/kseniya_pushkareva">@kseniya_pushkareva</a></p>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Навигация</h3>
+                    <ul>
+                        <li><a href="/index.html">Главная</a></li>
+                        <li><a href="/events.html">События</a></li>
+                        <li><a href="/achievements.html">Достижения</a></li>
+                        <li><a href="/schedule.html">Расписание</a></li>
+                        <li><a href="/materials.html">Полезное</a></li>
+                        <li><a href="/for_parents.html">Родителям</a></li>
+                        <li><a href="/contacts.html">Контакты</a></li>
+                    </ul>
+                </div>
+             
+                <div class="map-container">
+                    <iframe 
+                        src="https://yandex.ru/map-widget/v1/org/bumazhnaya_luna/13931392066/?indoorLevel=1&ll=92.924248%2C56.064791&utm_source=share&z=16" 
+                        width="100%" 
+                        height="300" 
+                        frameborder="0" 
+                        allowfullscreen 
+                        style="border:0; border-radius: 8px;">
+                    </iframe>
+                </div>
+            </div>
+          
+            <div class="copyright">
+                &copy; 2025 Театральная студия "Бумажная Луна". Все права защищены.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+    </script>
+</body>
+</html>

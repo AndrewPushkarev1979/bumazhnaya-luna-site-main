@@ -1,0 +1,39 @@
+---
+layout: default
+title: События — Театральная студия "Бумажная Луна"
+description: Афиша предстоящих и архив прошедших событий театральной студии "Бумажная Луна" в Красноярске.
+---
+
+<!-- Hero-подобный заголовок -->
+<section class="hero" style="padding: 4rem 0; background-color: var(--light-bg);">
+    <div class="container">
+        <h1>События студии</h1>
+        <p style="text-align: center; color: var(--warm-gray); font-size: 1.2rem;">
+            Афиша предстоящих и архив прошедших постановок, фестивалей и мастер-классов
+        </p>
+    </div>
+</section>
+
+<!-- Лента событий -->
+<section class="main-content" style="padding: 2rem 0;">
+    <div class="container">
+        {% for post in site.posts reversed %}
+        <article class="event-post" style="margin-bottom: 3rem; padding-bottom: 2rem; border-bottom: 1px solid #e5e5e5;">
+            <h2>
+                <a href="{{ post.url }}" style="color: var(--black); text-decoration: none; transition: color 0.2s;">
+                    {{ post.title }}
+                </a>
+            </h2>
+            <p style="color: var(--warm-gray); margin: 0.5rem 0;">📅 {{ post.date | date: "%d.%m.%Y" }}</p>
+            <div style="margin: 1.5rem 0;">
+                {{ post.content | strip_html | truncatewords: 40 }}
+            </div>
+            <a href="{{ post.url }}" class="cta-button" style="padding: 0.75rem 1.5rem; font-size: 1rem;">Подробнее</a>
+        </article>
+        {% endfor %}
+
+        {% if site.posts.size == 0 %}
+        <p style="text-align: center; color: var(--warm-gray);">Событий пока нет. Следите за обновлениями!</p>
+        {% endif %}
+    </div>
+</section>
